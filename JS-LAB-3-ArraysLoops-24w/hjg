@@ -1,0 +1,26 @@
+
+// Lab-3-3.js
+
+// Create an array to hold the user-submitted prices of the shopping cart items.
+let shoppingCart = [];
+let total = 0;
+
+// Variable to track whether free shipping threshold is met
+let freeShippingReached = false;
+
+// Start prompting user for item prices
+while (!freeShippingReached) {
+  let itemPrice = parseFloat(prompt("Enter the price of the item:"));
+  
+  if (!isNaN(itemPrice)) {
+    shoppingCart.push(itemPrice);
+    total += itemPrice;
+    console.log("Item prices: " + shoppingCart.join(" | "));
+    if (total >= 35) {
+      alert("Your shipping for this order will be free! Total: $" + total.toFixed(2));
+      freeShippingReached = true;
+    }
+  } else {
+    alert("Please enter a valid price!");
+  }
+}
